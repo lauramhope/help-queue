@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/help-queue/static/css/main.e6c13ad2.css",
+    "main.js": "/help-queue/static/js/main.9b4e47be.js",
+    "static/media/tickets.png": "/help-queue/static/media/tickets.c1addb252b0e58560cb1.png",
+    "index.html": "/help-queue/index.html",
+    "main.e6c13ad2.css.map": "/help-queue/static/css/main.e6c13ad2.css.map",
+    "main.9b4e47be.js.map": "/help-queue/static/js/main.9b4e47be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.9b4e47be.js"
+  ]
+}
