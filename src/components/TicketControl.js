@@ -6,6 +6,7 @@ import TicketDetail from './TicketDetail';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import * as a from './../actions';
+// import { formatDistanceToNow } from 'date-fns';
 
 class TicketControl extends React.Component {
 
@@ -13,7 +14,6 @@ class TicketControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      // formVisibleOnPage: false,
       selectedTicket: null,
       editing: false
     };
@@ -88,11 +88,27 @@ class TicketControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button> { /* new code */ }
+        <button onClick={this.handleClick}>{buttonText}</button> 
       </React.Fragment>
     );
   }
 
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(() => this.updateTicketElapsedWaitTime(), 1000);
+  }
+
+  componentDidUpdate() {
+    console.log("component updated!");
+  }
+
+  componentWillUnmount() {
+    console.log("component unmounted!");
+    clearInterval(this.waitTimeUpdateTimer);
+  }
+
+  updateTicketElapsedWaitTime = () => {
+    console.log("tick");
+  };
 }
 
 TicketControl.propTypes = {
@@ -100,15 +116,54 @@ TicketControl.propTypes = {
   formVisibleOnPage: PropTypes.bool
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     mainTicketList: state.mainTicketList,
     formVisibleOnPage: state.formVisibleOnPage
-  }
-}
-
-// Note: we are now passing mapStateToProps into the connect() function.
+  };
+};
 
 TicketControl = connect(mapStateToProps)(TicketControl);
 
 export default TicketControl;
+
+// TicketControl.propTypes = {
+//   mainTicketList: PropTypes.object,
+//   formVisibleOnPage: PropTypes.bool
+// };
+
+// formatDistanceToNow(new Date(), {
+//   addSuffix: true
+// });
+
+// const mapStateToProps = state => {
+//   return {
+//     mainTicketList: state.mainTicketList,
+//     formVisibleOnPage: state.formVisibleOnPage
+//   }
+// }
+
+// componentDidMount() {
+//   this.waitTimeUpdateTimer = setInterval(() =>
+//     this.updateTicketElapsedWaitTime(),
+//   1000
+//   );
+// }
+
+// componentDidUpdate() {
+//   console.log("component updated!");
+// }
+
+
+// componentWillUnmount(){
+//   console.log("component unmounted!");
+//   clearInterval(this.waitTimeUpdateTimer);
+// }
+
+// updateTicketElapsedWaitTime = () => {
+//   console.log("tick");
+// }
+
+// TicketControl = connect(mapStateToProps)(TicketControl);
+
+// export default TicketControl;

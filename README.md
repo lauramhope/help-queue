@@ -3,6 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+<!-- 
+  "repository": {
+    "url": "https://github.com/lauramhope/help-queue.git"
+  }, -->
 
 In the project directory, you can run:
 
